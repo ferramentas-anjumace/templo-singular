@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&family=Questrial&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
 
   <style>
     :root{
@@ -190,6 +191,88 @@
       font-size:11px;
       letter-spacing:.05em;
       color:var(--muted);
+    }
+
+
+    /* WhatsApp form */
+    .whatsapp-card{
+      margin-top:30px;
+      max-width:560px;
+      padding:22px;
+      border:1px solid rgba(31,31,29,.12);
+      border-radius:20px;
+      background:rgba(255,255,255,.52);
+      box-shadow:0 12px 34px rgba(25,25,22,.05);
+    }
+    .whatsapp-card-title{
+      margin:0 0 7px;
+      font-size:16px;
+      font-weight:600;
+      color:var(--graphite);
+    }
+    .whatsapp-card-copy{
+      margin:0 0 16px;
+      color:#656761;
+      font-size:13.5px;
+      line-height:1.55;
+    }
+    .whatsapp-form{
+      display:grid;
+      gap:12px;
+    }
+    .whatsapp-field{
+      width:100%;
+    }
+    .iti{
+      width:100%;
+    }
+    .whatsapp-input{
+      width:100%;
+      min-height:52px;
+      border:1px solid rgba(31,31,29,.18);
+      border-radius:12px;
+      background:#fff;
+      color:var(--graphite);
+      font:inherit;
+      font-size:15px;
+      padding:0 14px 0 52px;
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .whatsapp-input:focus{
+      border-color:rgba(132,144,113,.72);
+      box-shadow:0 0 0 3px rgba(132,144,113,.12);
+    }
+    .whatsapp-submit{
+      min-height:50px;
+      border:0;
+      border-radius:12px;
+      padding:0 18px;
+      background:var(--graphite);
+      color:var(--cream);
+      font:inherit;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+    .whatsapp-submit:hover{transform:translateY(-1px)}
+    .whatsapp-submit:disabled{opacity:.58;cursor:wait;transform:none}
+    .whatsapp-status{
+      display:none;
+      margin:2px 0 0;
+      font-size:12.5px;
+      line-height:1.45;
+    }
+    .whatsapp-status.success{display:block;color:#5D684E}
+    .whatsapp-status.error{display:block;color:#9A463F}
+    .whatsapp-privacy{
+      margin:0;
+      color:#85877F;
+      font-size:10.5px;
+      line-height:1.45;
     }
 
     /* Steps */
@@ -642,6 +725,19 @@
         display:none;
       }
 
+      .whatsapp-card{
+        margin-top:24px;
+        padding:18px;
+        border-radius:18px;
+      }
+      .whatsapp-card-copy{
+        font-size:13px;
+      }
+      .whatsapp-input{
+        min-height:50px;
+        font-size:16px;
+      }
+
       .footer{
         padding:44px 0 42px;
       }
@@ -681,11 +777,32 @@
 
           <div class="hero-copy">
             <p>Sua inscrição foi confirmada e, a partir de agora, você faz parte do Templo Singular. Quero te dar as boas-vindas pessoalmente e explicar como serão os seus primeiros passos.</p>
-            <p>Em instantes, você receberá uma mensagem no seu WhatsApp e um e-mail com as orientações para realizar seu primeiro acesso à plataforma. Dentro dela, você encontrará todas as informações necessárias para iniciarmos a construção da sua estratégia individual.</p>
+            <p>Para receber agora as orientações de início no seu WhatsApp, informe abaixo o número que deseja utilizar durante o seu acompanhamento.</p>
           </div>
 
-          <div class="signature">Estou muito feliz em ter você aqui. ♡</div>
-          <div class="signature-name">Anju Mace</div>
+          <div class="whatsapp-card">
+            <p class="whatsapp-card-title">Receba suas orientações pelo WhatsApp</p>
+            <p class="whatsapp-card-copy">Selecione seu país e informe o número com DDD. Funciona também para números internacionais.</p>
+
+            <form class="whatsapp-form" id="whatsappForm" novalidate>
+              <div class="whatsapp-field">
+                <input
+                  id="whatsapp"
+                  class="whatsapp-input"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  aria-label="Número do WhatsApp"
+                  required
+                >
+              </div>
+              <button class="whatsapp-submit" id="whatsappSubmit" type="submit">Receber minhas orientações</button>
+              <p class="whatsapp-status" id="whatsappStatus" role="status" aria-live="polite"></p>
+              <p class="whatsapp-privacy">Ao enviar, você autoriza o contato pelo WhatsApp para receber informações relacionadas à sua consultoria.</p>
+            </form>
+          </div>
+
+          <div class="signature">Estou muito feliz em ter você aqui.</div>
         </div>
 
         <div class="hero-photo-wrap">
@@ -714,8 +831,8 @@
                 <path d="M8.7 10.3a8 8 0 0 0 5 5l1.7-1.7a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V18a2 2 0 0 1-2 2C10.7 20 4 13.3 4 5a2 2 0 0 1 2-2h3.1a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z"/>
               </svg>
             </div>
-            <h3>Confira seu WhatsApp e seu e-mail</h3>
-            <p>Em instantes, você receberá uma mensagem no WhatsApp e um e-mail com as orientações para realizar seu primeiro acesso à plataforma.</p>
+            <h3>Envie seu WhatsApp e confira seu e-mail</h3>
+            <p>Após informar seu número acima, você receberá as orientações pelo WhatsApp. O e-mail de acesso à plataforma também será enviado para o endereço utilizado na sua compra.</p>
           </article>
 
           <article class="step-card">
@@ -796,5 +913,80 @@
   </footer>
 
 </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+  <script>
+    (() => {
+      const WEBHOOK_URL = "https://hook.us2.make.com/jdyc135e2d189gw98vkp71qy804jpami";
+      const input = document.querySelector("#whatsapp");
+      const form = document.querySelector("#whatsappForm");
+      const submit = document.querySelector("#whatsappSubmit");
+      const status = document.querySelector("#whatsappStatus");
+
+      const iti = window.intlTelInput(input, {
+        initialCountry: "br",
+        separateDialCode: true,
+        nationalMode: true,
+        autoPlaceholder: "aggressive",
+        loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/utils.js")
+      });
+
+      function setStatus(message, type) {
+        status.textContent = message;
+        status.className = "whatsapp-status " + type;
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        status.className = "whatsapp-status";
+
+        if (!input.value.trim()) {
+          setStatus("Informe seu número de WhatsApp para continuar.", "error");
+          input.focus();
+          return;
+        }
+
+        if (!iti.isValidNumber()) {
+          setStatus("Confira o número e o país selecionado antes de continuar.", "error");
+          input.focus();
+          return;
+        }
+
+        const country = iti.getSelectedCountryData();
+        const fullNumber = iti.getNumber();
+
+        submit.disabled = true;
+        submit.textContent = "Enviando...";
+
+        try {
+          const payload = new URLSearchParams();
+          payload.set("whatsapp", fullNumber);
+          payload.set("country_iso2", country.iso2 || "");
+          payload.set("country_name", country.name || "");
+          payload.set("dial_code", country.dialCode ? "+" + country.dialCode : "");
+          payload.set("source", "templo-singular-pos-compra");
+          payload.set("consent_whatsapp", "true");
+          payload.set("submitted_at", new Date().toISOString());
+
+          const response = await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+            body: payload.toString()
+          });
+
+          if (!response.ok) throw new Error("Webhook error");
+
+          setStatus("Tudo certo! Suas orientações serão enviadas para este WhatsApp em instantes.", "success");
+          submit.textContent = "WhatsApp confirmado";
+        } catch (error) {
+          setStatus("Não foi possível confirmar seu WhatsApp agora. Tente novamente em alguns segundos.", "error");
+          submit.disabled = false;
+          submit.textContent = "Receber minhas orientações";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
