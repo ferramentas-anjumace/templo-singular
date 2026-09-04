@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | Anju Mace</title>
+  <meta name="description" content="Acesse sua conta e baixe o aplicativo Circle." />
+  <style>
+    :root{
+      --bg:#262724;
+      --text:#f4f0e8;
+      --muted:#a9a79f;
+      --line:rgba(244,240,232,.55);
+      --hover:rgba(244,240,232,.06);
+    }
+
+    *{box-sizing:border-box}
+
+    html,body{
+      margin:0;
+      min-height:100%;
+      background:var(--bg);
+    }
+
+    body{
+      min-height:100vh;
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .wrap{
+      width:min(100%, 620px);
+      text-align:center;
+    }
+
+    .logo{
+      font-size:18px;
+      line-height:1.25;
+      letter-spacing:.42em;
+      text-transform:uppercase;
+      font-weight:500;
+      margin-bottom:70px;
+    }
+
+    .logo span{
+      display:block;
+      padding-left:.42em;
+    }
+
+    h1{
+      margin:0 0 46px;
+      font-family:"Avenir Next","Avenir","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size:clamp(44px,7vw,72px);
+      line-height:1.08;
+      font-weight:300;
+      letter-spacing:-.045em;
+    }
+
+    .buttons{
+      display:grid;
+      gap:16px;
+    }
+
+    .store-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      min-height:92px;
+      padding:16px 24px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      color:var(--text);
+      text-decoration:none;
+      transition:.2s ease;
+    }
+
+    .store-btn:hover{
+      background:var(--hover);
+      transform:translateY(-1px);
+    }
+
+    .store-btn svg{
+      width:44px;
+      height:44px;
+      flex:0 0 44px;
+    }
+
+    .store-copy{
+      text-align:left;
+      min-width:190px;
+    }
+
+    .store-copy small{
+      display:block;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:2px;
+    }
+
+    .store-copy strong{
+      display:block;
+      font-size:26px;
+      line-height:1.1;
+      font-weight:500;
+    }
+
+    .note{
+      margin:44px 0 0;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.55;
+    }
+
+    @media(max-width:520px){
+      body{padding:28px 18px}
+      .logo{margin-bottom:56px;font-size:15px}
+      h1{margin-bottom:38px;font-size:46px}
+      .store-btn{min-height:84px;border-radius:18px;padding:14px 18px}
+      .store-btn svg{width:38px;height:38px;flex-basis:38px}
+      .store-copy{min-width:165px}
+      .store-copy small{font-size:10px}
+      .store-copy strong{font-size:22px}
+      .note{font-size:15px;margin-top:36px}
+    }
+  
+    .mobile-break{display:none}
+    .desktop-space{display:inline}
+
+    @media(max-width:520px){
+      .mobile-break{display:inline}
+      .desktop-space{display:none}
+      h1{
+        font-size:46px;
+        line-height:1.08;
+        white-space:nowrap;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="logo" aria-label="Anju Mace">
+      <span>ANJU</span>
+      <span>MACE</span>
+    </div>
+
+    <h1>Faça login<span class="mobile-break"><br></span><span class="desktop-space"> </span>na sua conta</h1>
+
+    <div class="buttons">
+      <a class="store-btn" href="https://apps.apple.com/us/app/circle-communities/id1509651625" target="_blank" rel="noopener noreferrer" aria-label="Baixar Circle na App Store">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.1 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.8-2-1.6-.2-3.2 1-4 .9-.9 0-2.2-.9-3.6-.9-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.5 2.7 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.2.9 3.6.9 1.5 0 2.5-1.3 3.4-2.7 1-1.5 1.4-2.9 1.5-3-.1 0-3.3-1.3-3.3-4.7ZM14.5 5c.8-1 1.4-2.4 1.2-3.8-1.2 0-2.7.8-3.6 1.8-.8.9-1.5 2.3-1.3 3.7 1.4.1 2.8-.7 3.7-1.7Z"/>
+        </svg>
+        <div class="store-copy">
+          <small>Baixar Circle na</small>
+          <strong>App Store</strong>
+        </div>
+      </a>
+
+      <a class="store-btn" href="https://play.google.com/store/apps/details?id=so.circle" target="_blank" rel="noopener noreferrer" aria-label="Baixar Circle no Google Play">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3.6 2.3c-.4.4-.6 1-.6 1.8v15.8c0 .8.2 1.4.6 1.8l.1.1L12.6 13v-.2L3.7 2.2l-.1.1Z" fill="currentColor" opacity=".85"/>
+          <path d="m15.6 16-3-3-9 8.8c.3.3.8.4 1.3.1L15.6 16Z" fill="currentColor" opacity=".58"/>
+          <path d="M20.8 10.7 17.3 8.7 14 12l3.3 3.3 3.5-2c1-.6 1-1.9 0-2.6Z" fill="currentColor"/>
+          <path d="M4.9 2.1c-.5-.3-1-.2-1.3.1l9 8.8 3-3L4.9 2.1Z" fill="currentColor" opacity=".68"/>
+        </svg>
+        <div class="store-copy">
+          <small>Baixar Circle no</small>
+          <strong>Google Play</strong>
+        </div>
+      </a>
+    </div>
+
+    <p class="note">Utilize o mesmo e-mail utilizado na compra.</p>
+  </main>
+</body>
+</html>
