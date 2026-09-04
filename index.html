@@ -520,25 +520,135 @@
     }
 
     @media (max-width: 560px){
-      .container{width:min(calc(100% - 24px), var(--max))}
-      .hero{padding-top:94px}
-      .eyebrow{font-size:9px;padding:8px 11px}
-      h1{font-size:50px}
-      .hero-photo{min-height:445px;border-radius:26px}
-      .hero-photo img{min-height:445px}
+      .container{width:min(calc(100% - 28px), var(--max))}
+      .header{padding:18px 0}
+      .brand-logo{width:52px}
+
+      .hero{
+        padding:82px 0 48px;
+      }
+      .hero-grid{
+        gap:28px;
+      }
+      .eyebrow{
+        font-size:8.5px;
+        padding:7px 10px;
+        margin-bottom:20px;
+      }
+      h1{
+        font-size:43px;
+        line-height:1.02;
+        max-width:100%;
+      }
+      .hero-copy{
+        margin-top:22px;
+        font-size:15px;
+        line-height:1.55;
+      }
+      .hero-copy p{
+        margin:0 0 11px;
+      }
+      .signature{
+        margin-top:20px;
+        font-size:19px;
+      }
+      .signature-name{
+        margin-top:7px;
+      }
+      .hero-photo{
+        min-height:360px;
+        border-radius:24px;
+      }
+      .hero-photo img{
+        min-height:360px;
+        object-position:53% 42%;
+      }
       .photo-note{
-        position:absolute;
-        left:14px;
-        right:14px;
-        max-width:none;
+        display:none;
       }
 
-      .section-title{font-size:42px}
-      .store-buttons{display:grid;grid-template-columns:1fr}
-      .store-button{width:100%}
-      .phone-area{justify-content:center}
-      .phone-badge{display:none}
-      .footer-text{font-size:21px}
+      .steps{
+        padding:68px 0 72px;
+      }
+      .section-kicker{
+        margin-bottom:12px;
+      }
+      .section-title{
+        font-size:36px;
+        line-height:1.08;
+      }
+      .section-intro{
+        margin-top:16px;
+        font-size:14px;
+        line-height:1.55;
+      }
+      .steps-grid{
+        margin-top:42px;
+        gap:28px;
+      }
+      .step-card{
+        padding:38px 22px 24px;
+      }
+      .step-card h3{
+        font-size:17px;
+      }
+      .step-card p{
+        font-size:13.5px;
+        line-height:1.55;
+      }
+
+      .app-section{
+        padding:66px 0 70px;
+      }
+      .app-grid{
+        gap:40px;
+      }
+      .app-title{
+        font-size:39px;
+        line-height:1.04;
+        max-width:100%;
+      }
+      .app-copy{
+        margin-top:20px;
+        font-size:14.5px;
+        line-height:1.6;
+      }
+      .store-buttons{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+        margin-top:24px;
+      }
+      .store-button{
+        width:100%;
+        min-height:54px;
+        padding:9px 15px;
+      }
+      .store-button strong{
+        font-size:16px;
+      }
+      .email-note{
+        margin-top:16px;
+        font-size:11.5px;
+      }
+      .phone-area{
+        justify-content:center;
+      }
+      .circle-mockup{
+        width:min(330px,92vw);
+        border-radius:26px;
+      }
+      .phone-badge{
+        display:none;
+      }
+
+      .footer{
+        padding:44px 0 42px;
+      }
+      .footer-text{
+        font-size:19px;
+        line-height:1.4;
+      }
     }
 
     @media (prefers-reduced-motion:reduce){
